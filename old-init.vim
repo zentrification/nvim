@@ -24,6 +24,9 @@
 " https://github.com/Shougo/neosnippet.vim
 " --------------------------------------------------------------------------------------------------
 
+" https://www.reddit.com/r/neovim/comments/jfs5sb/initvim_to_initlua_any_advantages/
+"lua require('config')
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
@@ -63,8 +66,8 @@ let g:ctrlp_match_window = 'btop,order:ttb,min:1,max:15'
 "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 Plug 'junegunn/vim-peekaboo'
-let g:peekaboo_delay = 500
-let g:peekaboo_window = 'vertical botright 50new'
+let g:peekaboo_delay = 400
+let g:peekaboo_window = 'vertical botright 70new'
 
 " Initialize plugin system
 call plug#end()
@@ -140,7 +143,7 @@ inoremap <Leader>s <ESC>:update<CR>
 nnoremap <Leader>s :update<CR>
 inoremap <Leader>x <ESC>:x<CR>
 nnoremap <Leader>x :x<CR>
-cmap W :w !sudo tee %
+ca w!! w !sudo tee > /dev/null "%"
 
 " replace
 nnoremap <Leader>r :%s/
@@ -159,6 +162,7 @@ nnoremap \7 :colorscheme gruvbox<CR>
 nnoremap \b  :CtrlPBuffer<CR>
 "nnoremap \g  :grep -r --exclude-dir={.git,log} <c-r>=expand("<cword>")<cr> .<cr><cr>:copen<cr>
 "nnoremap \G  :grep -r --exclude-dir={.git,log} <c-r>=expand("<cword>")
+nnoremap \h  :help quickref<CR>
 nnoremap \l  :set invnumber<CR>
 nnoremap \m  :map<CR>
 nnoremap \n  :NERDTreeToggle<CR>
